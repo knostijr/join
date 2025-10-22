@@ -1,0 +1,52 @@
+<header>
+	<img class="logo" src="images/join_logo/join_logo_dark.svg" alt="" width="32" />
+	<span class="desktop-title">Kanban Management Tool</span>
+	<div class="interactives">
+		<a routerLink="/help"><img class="help" src="images/assets/help_icon.svg" alt="" /></a>
+		<button appPopoverButton [popover]="popover">
+			@if (userAsContact) {
+				<div class="profile-picture-container">
+					<app-profile-picture [contact]="userAsContact" size="header" />
+				</div>
+			} @else {
+				<div class="profile-picture">
+					<span>SV</span>
+				</div>
+			}
+			<app-popover #popover="appPopover" sharpCorner="topRight" variant="primary"
+				><div class="flex">
+					<div class="options-container">
+						<a routerLink="/help">
+							<button class="option">
+								<span class="option-text">Help</span>
+							</button>
+						</a>
+						<a routerLink="/legal-notice">
+							<button class="option">
+								<span class="option-text">Legal Notice</span>
+							</button>
+						</a>
+						<a routerLink="/privacy-policy">
+							<button class="option">
+								<span class="option-text">Privacy Policy</span>
+							</button>
+						</a>
+						@if (loggedIn()) {
+							<a routerLink="/login">
+								<button class="option" (click)="onLogout()">
+									<span class="option-text">Logout</span>
+								</button>
+							</a>
+						} @else {
+							<a routerLink="/login">
+								<button class="option">
+									<span class="option-text">Login</span>
+								</button>
+							</a>
+						}
+					</div>
+				</div>
+			</app-popover>
+		</button>
+	</div>
+</header>

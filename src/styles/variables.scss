@@ -1,0 +1,74 @@
+html {
+	--bg-color-blue-lighter: #29abe2;
+	--bg-color-blue-darker: #2a3647;
+	--bg-color-white: #fff;
+	--bg-color-gray: #f6f7f8;
+	--bg-color-gray-darker: #d1d1d1;
+	--color-link: #007cee;
+	--text-color-blue: #2a3647;
+	--text-color-black: #000;
+	--hover-gray: #f4f4f4;
+	--input-gray: #a8a8a8;
+	--header-popover-gray: #cdcdcd;
+	--hover-drop-list-gray: #e9e9e9;
+
+	/* Typography Sizes - Mobile First */
+	/* headings */
+
+	--fs-h1: clamp(2.938rem, 2.719rem + 1.094vw, 3.813rem); /* Usage  */
+	--fs-h2: clamp(1rem, 0.922rem + 0.391vw, 1.313rem); /* Usage  */
+	--fs-h3: clamp(1.688rem, 1.469rem + 1.094vw, 2.563rem); /* Usage  */
+	--fs-h4: clamp(1.5rem, 1.141rem + 1.797vw, 2.938rem); /* Usage  */
+
+	/* text */
+	--fs-extraSmall: 14px; /* Usage  */
+	--fs-small: clamp(1rem, 0.969rem + 0.156vw, 1.125rem); /* Usage  */
+	--fs-medium: clamp(1rem, 0.922rem + 0.391vw, 1.313rem); /* Usage  */
+	--fs-big: clamp(1.5rem, 1.453rem + 0.234vw, 1.688rem); /* Usage  */
+	--fs-XL: clamp(2.938rem, 2.672rem + 1.328vw, 4rem); /* Usage */
+
+	/* for inputs text */
+	--fs-input: clamp(1.25rem, 1.234rem + 0.078vw, 1.313rem); /* Usage  */
+	/* for button text */
+	--fs-button: clamp(1.25rem, 1.234rem + 0.078vw, 1.313rem); /* Usage  */
+	--fs-login-btn: clamp(1rem, 0.922rem + 0.391vw, 1.313rem); /* Usage  */
+
+	/* for greeting text */
+	--fs-greeting: clamp(2.25rem, 2.078rem + 0.86vw, 2.938rem); /* Usage  */
+
+	--stat-label: clamp(0.875rem, 0.781rem + 0.469vw, 1.25rem);
+
+	/* Font Weights */
+	--fw-regular: 400;
+	--fw-medium: 500;
+	--fw-semibold: 600;
+	--fw-bold: 700;
+
+	/* Legacy font sizes for backward compatibility */
+	/* do not use */
+
+	--footer-width-desktop: min(22vw, 232px);
+	--header-height: 8vh;
+	--padding-left-desktop: calc(var(--footer-width-desktop) + 1rem);
+}
+
+:root {
+	--avatar-color-1: #15e222;
+	--avatar-color-2: #f00b5b;
+	--avatar-color-3: #29abe2;
+	--avatar-color-4: #f30b0b;
+	--avatar-color-5: #8e44ad;
+	--avatar-color-6: #16a085;
+	--avatar-color-7: #ffbb2b;
+	--avatar-color-8: #2c3e50;
+	--avatar-color-9: #3505b7;
+	--avatar-color-10: #dda27a;
+	--task-category-color-blue: #0038ff;
+	--task-category-color-blue-hovered: hsl(227deg 100% 60%);
+	--task-category-color-teal: #1fd7c1;
+	--task-category-color-teal-hovered: hsl(173deg 75% 58%);
+	--input-focus-color: #6dbfe9;
+	--input-hint-color-blue: #0af;
+	--progress-bar-bg: #f4f4f4;
+	--progress-bar-fill: #4589ff;
+}

@@ -1,0 +1,90 @@
+@use "../../../../styles/mixins";
+
+* {
+	box-sizing: border-box;
+	margin-bottom: 32px;
+	scroll-behavior: smooth;
+
+	button {
+		border: none;
+		background: none;
+		cursor: pointer;
+	}
+
+	h2 {
+		margin-bottom: 12px;
+		font-size: 27px;
+		font-weight: bold;
+	}
+
+	h3 {
+		margin-bottom: 12px;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	h4 {
+		margin-top: 12px;
+		margin-bottom: 8px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	a {
+		text-decoration: none;
+		color: var(--bg-color-blue-lighter);
+	}
+
+	span {
+		font-size: var(--fs-small);
+
+		ul {
+			margin-left: 32px;
+
+			li {
+				margin-bottom: 12px;
+			}
+		}
+	}
+}
+
+.content {
+	margin: 0 auto;
+	max-height: 100vh;
+	overflow-y: auto;
+	max-width: 1200px;
+	padding: 0 1.8rem;
+
+	.policy-txt {
+		max-width: 1200px;
+		margin: 3rem auto 10rem;
+		padding: 0 1.8rem;
+	}
+
+	.headline {
+		max-width: 1200px;
+		padding: 0 1.8rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+
+		h1 {
+			font-size: var(--fs-XL);
+			margin-bottom: 24px;
+			margin-top: 24px;
+		}
+	}
+}
+
+@include mixins.desktop {
+	.content {
+		height: 90vh;
+
+		.headline {
+			h1 {
+				font-size: 61px;
+			}
+		}
+	}
+}

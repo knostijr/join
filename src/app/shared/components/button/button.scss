@@ -1,0 +1,297 @@
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1rem;
+	border: none;
+	border-radius: 0.75rem;
+	font-family: Inter, sans-serif;
+	font-size: var(--fs-button);
+	font-weight: var(--fw-medium);
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	min-height: 44px;
+	flex-wrap: wrap;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	// primary button - "add contatcs btn #2A3647
+	&--primary {
+		background-color: var(--bg-color-blue-darker);
+		color: var(--bg-color-white);
+
+		&:hover:not(:disabled) {
+			background-color: #1e2832;
+			transform: translateY(-1px);
+			box-shadow: 0 4px 12px rgba(42, 54, 71, 0.3);
+		}
+
+		&:active {
+			transform: translateY(0);
+			box-shadow: 0 2px 8px rgba(42, 54, 71, 0.2);
+		}
+	}
+
+	// FAB button - Floating Action Button for mobile
+	&--fab {
+		background-color: var(--bg-color-blue-darker);
+		color: var(--bg-color-white);
+		border: none;
+		border-radius: 50%;
+		width: 56px;
+		height: 56px;
+		min-height: 56px;
+		padding: 0;
+		box-shadow: 0 4px 12px rgba(42, 54, 71, 0.3);
+
+		&:hover:not(:disabled) {
+			background-color: #1e2832;
+			transform: translateY(-2px);
+			box-shadow: 0 8px 16px rgba(42, 54, 71, 0.4);
+		}
+
+		&:active {
+			transform: translateY(0);
+			box-shadow: 0 2px 8px rgba(42, 54, 71, 0.2);
+		}
+
+		// Hide text for FAB buttons
+		.btn__text {
+			display: none;
+		}
+
+		// Center icon perfectly
+		.btn__icon {
+			margin: 0;
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	&--success {
+		background: #2a3647;
+		color: #fff;
+		border: none;
+		border-radius: 10px;
+		padding: 8px;
+		font-size: var(--fs-button);
+		font-weight: bold;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		min-height: auto;
+
+		.btn__icon {
+			width: auto;
+			height: auto;
+			margin-left: 6px;
+		}
+
+		&:hover:not(:disabled) {
+			background: #007cee;
+		}
+	}
+
+	// Cancel button - Original close_overlay style from AddContact
+	&--cancel {
+		background-color: #ffffff;
+		border: 1px solid #2a3647;
+		color: #2a3647;
+		border-radius: 10px;
+		padding: 8px;
+		font-size: var(--fs-button);
+		font-weight: bold;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 4px;
+		min-height: auto;
+
+		.btn__icon {
+			width: auto;
+			height: auto;
+		}
+
+		&:hover:not(:disabled) {
+			color: #007cee;
+			background-color: #ffffff;
+			border: 1px solid #007cee;
+			box-shadow: 1px 1px 1px 1px grey;
+		}
+	}
+
+	// XSmall button - Extra compact for toast actions
+	&--xsmall {
+		padding: 0.26rem 0.525rem;
+		font-size: var(--fs-small);
+		min-height: 28px;
+	}
+
+	// Small button - Compact size for tight spaces
+	&--small {
+		padding: 0.5rem 1rem;
+		font-size: var(--fs-small);
+		min-height: 36px;
+	}
+
+	// Large button - Prominent actions and CTAs
+	&--large {
+		padding: 1rem 2rem;
+		font-size: var(--fs-button);
+		min-height: 52px;
+	}
+
+	// Full width button - Spans entire container width
+	&--full-width {
+		width: 100%;
+	}
+
+	// Icon styling
+	&__icon {
+		width: 1.25rem;
+		height: 1.25rem;
+		flex-shrink: 0;
+	}
+
+	// Loading button - Shows spinner during async operations
+	&--loading {
+		position: relative;
+		pointer-events: none;
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 1rem;
+			height: 1rem;
+			border: 2px solid transparent;
+			border-top: 2px solid currentColor;
+			border-radius: 50%;
+			animation: spin 1s linear infinite;
+		}
+
+		.btn__icon,
+		.btn__text {
+			opacity: 0;
+		}
+	}
+
+	// Ghost button - Transparent background with subtle hover effects
+	&--ghost {
+		background-color: transparent;
+		color: var(--text-color-black);
+		border: none;
+
+		&:hover:not(:disabled) {
+			background-color: var(--bg-color-gray);
+			transform: translateY(-1px);
+		}
+
+		&:active {
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	// Edit button - Icon-only button for editing contact entries
+	&--edit {
+		background-color: transparent;
+		color: var(--bg-color-blue-darker);
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		min-height: auto;
+
+		&:hover:not(:disabled) {
+			background-color: transparent;
+			color: #29abe2;
+
+			.btn__icon {
+				filter: brightness(0) saturate(100%) invert(53%) sepia(94%) saturate(1158%)
+					hue-rotate(174deg) brightness(101%) contrast(101%);
+			}
+		}
+
+		// Disable hover effects on touch devices
+		@media (hover: none) {
+			&:hover:not(:disabled) {
+				background-color: transparent;
+				color: var(--bg-color-blue-darker);
+
+				.btn__icon {
+					filter: none;
+				}
+			}
+		}
+
+		.btn__icon {
+			width: 1rem;
+			height: 1rem;
+			transition: filter 0.2s ease;
+		}
+	}
+
+	// Delete button - Icon-only button for deleting contact entries
+	&--delete {
+		background-color: transparent;
+		color: var(--bg-color-blue-darker);
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		min-height: auto;
+
+		&:hover:not(:disabled) {
+			background-color: transparent;
+			color: #29abe2;
+
+			.btn__icon {
+				filter: brightness(0) saturate(100%) invert(53%) sepia(94%) saturate(1158%)
+					hue-rotate(174deg) brightness(101%) contrast(101%);
+			}
+		}
+
+		// Disable hover effects on touch devices
+		@media (hover: none) {
+			&:hover:not(:disabled) {
+				background-color: transparent;
+				color: var(--bg-color-blue-darker);
+
+				.btn__icon {
+					filter: none;
+				}
+			}
+		}
+
+		.btn__icon {
+			width: 1rem;
+			height: 1rem;
+			transition: filter 0.2s ease;
+		}
+	}
+
+	// Responsive adjustments - Mobile-optimized button sizing
+	@media (max-width: 768px) {
+		.btn {
+			padding: 0.875rem 1.25rem;
+			font-size: var(--fs-text);
+
+			&--small {
+				padding: 0.625rem 1rem;
+			}
+
+			&--large {
+				padding: 1.125rem 1.75rem;
+			}
+		}
+	}
+}

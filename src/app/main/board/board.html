@@ -1,0 +1,14 @@
+<section class="main-content-wrapper">
+	<app-board-view (addTaskClicked)="onAddTaskClicked($event)"></app-board-view>
+
+	@if (addTaskOverlayOpen) {
+		<div class="overlay">
+			<div class="container">
+				<button (click)="onCloseAddTask()">
+					<img src="images/assets/cancel_icon.svg" alt="Cancel" />
+				</button>
+				<app-add-task-form [categoryToAdd]="categoryToAdd" (addedTask)="onTaskAdded()" />
+			</div>
+		</div>
+	}
+</section>

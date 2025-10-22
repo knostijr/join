@@ -1,0 +1,66 @@
+<div class="title-section">
+	<button class="back-arrow" (click)="goBack()">
+		<img src="images/assets/arrow_left_line.svg" alt="back arrow" />
+	</button>
+	<h1>Contacts</h1>
+	<p>Better with a team</p>
+	<hr class="title-underline" />
+</div>
+
+@if (contactForView(); as contact) {
+	<div class="contact-card" animate.enter="enter-animation">
+		<div class="contact-header">
+			<div class="initials" [style.background-color]="contactService.getAvatarColor(contact)">
+				{{ contact.initials }}
+			</div>
+
+			<div class="contact-info">
+				<h2 class="contact-name">{{ contact.name }}</h2>
+
+				<div class="desktop-action-buttons">
+					<app-button
+						variant="edit"
+						icon="images/contacs_section/edit.svg"
+						(clickEvent)="contact.id && onEditContact(contact.id)"
+					>
+						Edit
+					</app-button>
+					<app-button
+						variant="delete"
+						icon="images/contacs_section/trash_icon.svg"
+						(clickEvent)="contact.id && onDeleteContact(contact.id)"
+					>
+						Delete
+					</app-button>
+				</div>
+			</div>
+
+			<app-contact-menu
+				class="mobile-only"
+				[contactId]="contact.id"
+				(editClicked)="onEditContact($event)"
+				(deleteClicked)="onDeleteContact($event)"
+			>
+			</app-contact-menu>
+		</div>
+		<div class="contact-details">
+			<h3>Contact Information</h3>
+			<p>
+				<strong>Email</strong><br />
+				<a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+			</p>
+			<p>
+				<strong>Phone</strong><br />
+				{{ contact.telephone }}
+			</p>
+		</div>
+	</div>
+}
+@if (isEditOverlayOpen()) {
+	<app-edit-contact
+		[contactId]="onEditContactId()"
+		(closed)="onCloseEditOverlay()"
+		(saved)="onEditContactSaved()"
+	>
+	</app-edit-contact>
+}

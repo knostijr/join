@@ -1,0 +1,17 @@
+<router-outlet />
+
+@if (currentToast()) {
+	<app-toast
+		[type]="currentToast()!.type"
+		[title]="currentToast()!.title"
+		[message]="currentToast()!.message"
+		[duration]="currentToast()!.duration || 1500"
+		[showCloseButton]="false"
+		[icon]="currentToast()!.icon"
+		[action]="currentToast()!.action"
+		[actions]="currentToast()!.actions"
+		(closeEvent)="toastService.hide()"
+		(actionEvent)="handleToastAction()"
+	>
+	</app-toast>
+}

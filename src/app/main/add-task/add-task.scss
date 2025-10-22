@@ -1,0 +1,56 @@
+@use "./../../../styles/mixins.scss";
+
+.add-task-container {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding: 50px 18px 18px;
+	background: var(--bg-color-gray);
+	font-family: "Inter", sans-serif;
+	color: var(--text-color-black);
+
+	.form-boundary {
+		display: flex;
+		flex-direction: column;
+		max-width: 1000px;
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+
+.at-title {
+	font-size: var(--fs-h1);
+	font-weight: var(--fw-bold);
+	line-height: 1;
+	margin-bottom: 40px;
+}
+
+.form-container {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+@include mixins.desktop {
+	.add-task-container {
+		padding: 90px 18px 18px;
+	}
+
+	.at-title {
+		width: 100%;
+		max-width: 1000px;
+		margin: 0 0 40px 0;
+		padding-left: 2rem;
+		margin-left: auto;
+		margin-right: auto;
+		box-sizing: border-box;
+	}
+}
+
+@media (max-width: 1000px) {
+	.add-task-container {
+		overflow-y: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+	}
+}

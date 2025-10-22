@@ -1,0 +1,94 @@
+<div class="login-overlay">
+	<div class="join-logo"></div>
+</div>
+
+<div class="login">
+	<div class="logo">
+		<img src="images/join_logo/join_logo_dark.svg" alt="" />
+
+		<div class="register-desktop">
+			<span>Not a Join user?</span>
+			<button>
+				<a routerLink="/signup">Sign up</a>
+			</button>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="login-window">
+			<div class="headline">
+				<h1>Log in</h1>
+				<div class="seperator"></div>
+			</div>
+
+			<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+				<div class="inputs">
+					<div
+						class="input-wrapper"
+						[class.hide-icon]="(loginForm.get('email')?.value || '').length > 4"
+					>
+						<img src="images/login_section/mail_icon.svg" class="input-icon" />
+						<input type="text" placeholder="Email" formControlName="email" />
+						<div
+							*ngIf="
+								loginForm.get('email')?.invalid &&
+								(loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+							"
+							class="error-message"
+						>
+							Please enter a valid email address.
+						</div>
+					</div>
+
+					<div
+						class="input-wrapper"
+						[class.hide-icon]="(loginForm.get('password')?.value || '').length > 8"
+					>
+						<img src="images/login_section/lock.svg" class="input-icon" />
+						<input type="password" placeholder="Password" formControlName="password" />
+						<div
+							*ngIf="
+								loginForm.get('password')?.invalid &&
+								(loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
+							"
+							class="error-message"
+						>
+							The password must be at least 6 characters long.
+						</div>
+					</div>
+				</div>
+
+				<div *ngIf="errorMessage" class="general-error-message">
+					{{ errorMessage }}
+				</div>
+
+				<div class="login-buttons">
+					<button
+						type="submit"
+						class="login-button"
+						[disabled]="loginForm.invalid || isLoading"
+						[ngClass]="{ 'active-button': loginForm.valid && !isLoading }"
+					>
+						{{ isLoading ? "Loading..." : "Login" }}
+					</button>
+
+					<button type="button" class="guest-login" (click)="onGuestLogin()" [disabled]="isLoading">
+						Guest Log in
+					</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="register">
+			<span>Not a Join user?</span>
+			<button>
+				<a routerLink="/signup">Sign up</a>
+			</button>
+		</div>
+
+		<div class="legal-notes">
+			<a routerLink="/privacy-policy">Privacy Policy</a>
+			<a routerLink="/legal-notice">Legal Notice</a>
+		</div>
+	</div>
+</div>
